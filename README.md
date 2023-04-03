@@ -2,7 +2,7 @@
 
 ## About Ozim Platform
 
-Ozim Platform is a mobile app for parents of children of early age. It contains information on early development and intervenation in text and video format. We are bringing together researchers in the field of inclusion, experts in educational and medical correction, and specialists in early intervention to raise awareness among parents.
+Ozim Platform is a mobile app for parents of children of early age. It contains information on early development and intervenation in text and video format. We are bringing together researchers in the field of education, inclusion, and specialists in early intervention to help parents develop their children's skills at home.
 
 ## Learning Ozim Platform
 
