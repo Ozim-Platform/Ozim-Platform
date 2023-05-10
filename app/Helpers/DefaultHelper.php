@@ -3,6 +3,8 @@
 
 namespace App\Helpers;
 
+use App\Models\User;
+
 /**
  * Класс предназначенный для вспомогательных функций
  * Class DefaultHelper
@@ -53,5 +55,18 @@ class DefaultHelper
         $then = mb_substr($string, 1, null);
         return mb_strtoupper($firstChar) . $then;
     }
+
+
+
+   static function addPoints($points)
+    {
+        $user = User::query()->where('id', auth()->user()->id)->first();
+
+        $user->points += $points;
+
+        $user->save();
+    }
+
+
 
 }

@@ -21,7 +21,7 @@ class ArticleController extends Controller
         $namespace_edit = 'admin.article.edit';
         $namespace_destroy = 'admin.article.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate(10);
 
         return view($this->controllerName(),[
             'items' => $items,

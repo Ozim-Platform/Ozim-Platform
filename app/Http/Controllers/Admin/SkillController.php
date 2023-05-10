@@ -21,7 +21,7 @@ class SkillController extends Controller
         $namespace_edit = 'admin.skill.edit';
         $namespace_destroy = 'admin.skill.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate(5);
 
         return view($this->controllerName(),[
             'items' => $items,

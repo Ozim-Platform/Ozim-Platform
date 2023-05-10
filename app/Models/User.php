@@ -55,4 +55,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasMany(UserChildren::class, 'parent_id', 'id');
     }
+
+    public function subscription()
+    {
+        return $this->hasOne(UserSubscription::class, 'user_id', 'id')
+            ->where('value', 'exists', false);
+    }
 }

@@ -22,7 +22,7 @@ class ForParentController extends Controller
         $namespace_edit = 'admin.for_parent.edit';
         $namespace_destroy = 'admin.for_parent.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

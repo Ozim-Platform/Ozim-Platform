@@ -21,7 +21,7 @@ class InclusionController extends Controller
         $namespace_edit = 'admin.inclusion.edit';
         $namespace_destroy = 'admin.inclusion.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

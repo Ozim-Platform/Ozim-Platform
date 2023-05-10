@@ -36,7 +36,7 @@ class SkillController extends Controller
             if ($request->has('id'))
                 $query->where('id', (int)$request->id);
 
-        })->paginate(10);
+        })->orderByDesc('id')->paginate(10);
 
         return response()->json([
             'data' => SkillResource::collection($skills),

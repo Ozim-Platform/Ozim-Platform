@@ -23,13 +23,14 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>Имя</th>
                             <th>Телефон</th>
                             <th>Почта</th>
                             <th>Аватар</th>
+                            <th>Баллы</th>
                             <th>Язык</th>
                             <th>Тип</th>
                             <th>Роль</th>
@@ -47,6 +48,7 @@
                                         <img src="/{{ $item->avatar }}" style="width: 100px; height: 100px;" alt="avatar">
                                     @endif
                                 </td>
+                                <td>{{ $item->points ?? 0 }}</td>
                                 <td>{{ $item->language->name ?? 'не указан' }}</td>
                                 <td>{{ $item->type->name ?? 'не указан' }}</td>
                                 <td>{{ $item->role->name ?? 'не указан' }}</td>
@@ -64,6 +66,7 @@
                             <th>Телефон</th>
                             <th>Почта</th>
                             <th>Аватар</th>
+                            <th>Баллы</th>
                             <th>Язык</th>
                             <th>Тип</th>
                             <th>Роль</th>
@@ -72,6 +75,7 @@
                         </tfoot>
                     </table>
                 </div>
+                @include('partials.pagination')
                 <div class="dt-buttons btn-group">
                     <a href="{{ route($namespace_create) }}" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0">
                         <span>Добавить пользователя</span>

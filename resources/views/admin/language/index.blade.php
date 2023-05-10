@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table nowrap table-bordered table-striped">
+                    <table  class="table nowrap table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Название</th>

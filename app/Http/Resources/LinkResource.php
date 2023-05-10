@@ -26,6 +26,7 @@ class LinkResource extends JsonResource
             'link' => $this->link,
             'is_paid' => $this->is_paid,
             'image' => $this->image,
+            'book' => $this->book,
             'preview' => $this->preview,
             'author' => $this->author,
             'author_position' => $this->author_position,

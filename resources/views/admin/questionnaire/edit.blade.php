@@ -1,12 +1,12 @@
 @extends('layouts.main')
-@section('title', '- Анкета')
+@section('title', '- Опросник')
 
 @section('content')
 
     <div class="col-12">
         @include('partials.messages')
         <div class="box">
-            <form action="{{ route($namespace_update, $item->_id) }}" method="POST" enctype="multipart/form-data">
+            <form onsubmit="return confirm('Вы уверены, так как это приведет к удалению результатов?');" action="{{ route($namespace_update, $item->_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="box-header with-border">
                     <div class="mr-auto">
@@ -14,7 +14,7 @@
                             <nav>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route($namespace_update, $item->_id) }}"><i class="mdi mdi-home-outline"></i></a></li>
-                                    <li class="breadcrumb-item" aria-current="page">Анкета</li>
+                                    <li class="breadcrumb-item" aria-current="page">Опросник</li>
                                     <li class="breadcrumb-item active" aria-current="page">Редактирование</li>
                                 </ol>
                             </nav>

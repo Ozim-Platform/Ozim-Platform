@@ -21,7 +21,7 @@
             <li class="@if(request()->is('*category*') && !request()->is('*forum_category*') && !request()->is('*forum_subcategory*')) active @endif">
                 <a href="{{ route('admin.category.index') }}">
                     <i data-feather="pie-chart"></i>
-                    <span>Категории</span>
+                    <span>Темы</span>
                 </a>
             </li>
 
@@ -71,7 +71,7 @@
             >
                 <a href="#">
                     <i data-feather="grid"></i>
-                    <span>Записи</span>
+                    <span>Категории</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-right pull-right"></i>
                     </span>
@@ -80,14 +80,14 @@
                     <li class="@if(request()->is('*article*')) active @endif">
                         <a href="{{ route('admin.article.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Статьи</span>
+                            <span>Афиша</span>
                         </a>
                     </li>
 
                     <li class="@if(request()->is('*diagnosis*')) active @endif">
                         <a href="{{ route('admin.diagnosis.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Диагнозы</span>
+                            <span>Статьи</span>
                         </a>
                     </li>
 
@@ -101,14 +101,14 @@
                     <li class="@if(request()->is('*link*')) active @endif">
                         <a href="{{ route('admin.link.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Ресурсы</span>
+                            <span>Библиотека</span>
                         </a>
                     </li>
 
                     <li class="@if(request()->is('*inclusion*')) active @endif">
                         <a href="{{ route('admin.inclusion.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Инклюзия</span>
+                            <span>Игры</span>
                         </a>
                     </li>
 
@@ -129,7 +129,7 @@
                     <li class="@if(request()->is('*skill*')) active @endif">
                         <a href="{{ route('admin.skill.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Навыки</span>
+                            <span>Видеоуроки</span>
                         </a>
                     </li>
 
@@ -143,26 +143,20 @@
                     <li class="@if(request()->is('*for_parent*')) active @endif">
                         <a href="{{ route('admin.for_parent.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Для мамы</span>
+                            <span>Блоги</span>
                         </a>
                     </li>
 
                     <li class="@if(request()->is('*banner*')) active @endif">
                         <a href="{{ route('admin.banner.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Баннер</span>
+                            <span>Реклама</span>
                         </a>
                     </li>
                     <li class="@if(request()->is('*questionnaire*')) active @endif">
                         <a href="{{ route('admin.questionnaire.index') }}">
                             <i class="ti-bookmark-alt"></i>
-                            <span>Анкета</span>
-                        </a>
-                    </li>
-                    <li class="@if(request()->is('*video*')) active @endif">
-                        <a href="{{ route('admin.video.index') }}">
-                            <i class="ti-bookmark-alt"></i>
-                            <span>Видео</span>
+                            <span>Опросник</span>
                         </a>
                     </li>
                     <li class="@if(request()->is('*partner*')) active @endif">

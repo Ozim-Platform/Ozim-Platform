@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-responsive table-striped">
+                    <table  class="table table-bordered table-responsive table-striped">
                         <thead>
                             <tr>
                                 <th>Тема</th>
@@ -79,6 +79,7 @@
                         </tfoot>
                     </table>
                 </div>
+                @include('partials.pagination')
                 <div class="dt-buttons btn-group">
                     <a href="{{ route($namespace_create) }}" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0">
                         <span>Добавить форум</span>

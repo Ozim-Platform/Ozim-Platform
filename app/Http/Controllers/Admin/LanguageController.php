@@ -19,7 +19,7 @@ class LanguageController extends Controller
         $namespace_edit = 'admin.language.edit';
         $namespace_destroy = 'admin.language.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

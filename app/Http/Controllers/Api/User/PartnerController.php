@@ -35,7 +35,7 @@ class PartnerController extends Controller
             if ($request->has('id'))
                 $q->where('id', (int)$request->id);
 
-        })->paginate($request->limit ?? 10);
+        })->orderByDesc('id')->paginate($request->limit ?? 10);
 
         return response()->json(['data' => PartnerResource::collection($partners), 'page' => $partners->currentPage(), 'pages' => $partners->lastPage()]);
     }

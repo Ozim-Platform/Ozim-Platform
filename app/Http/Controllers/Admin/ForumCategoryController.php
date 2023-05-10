@@ -20,7 +20,7 @@ class ForumCategoryController extends Controller
         $namespace_edit = 'admin.forum_category.edit';
         $namespace_destroy = 'admin.forum_category.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

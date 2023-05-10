@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', '- Анкета')
+@section('title', '- Опросник')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route($controller_name) }}"><i class="mdi mdi-home-outline"></i></a></li>
-                                <li class="breadcrumb-item" aria-current="page">Анкета</li>
+                                <li class="breadcrumb-item" aria-current="page">Опросник</li>
                                 <li class="breadcrumb-item active" aria-current="page">Просмотр</li>
                             </ol>
                         </nav>
@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped nowrap">
+                    <table  class="table table-bordered table-striped nowrap">
                         <thead>
                             <tr>
                                 <th>Возраст</th>
@@ -101,6 +101,7 @@
                         </tfoot>
                     </table>
                 </div>
+                @include('partials.pagination')
                 <div class="dt-buttons btn-group">
                     <a href="{{ route($namespace_create) }}" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0">
                         <span>Добавить анкету</span>

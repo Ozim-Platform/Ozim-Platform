@@ -251,10 +251,16 @@ class UserController extends Controller
      */
     public function getPoints(Request $request)
     {
+        $request->validate([
+            'points' => ['required', 'integer']
+        ]);
+
         // получение текущего авторизированного пользователя
         $user = $this->userRepository->getAuthUser();
 
-        $user->points += 50;
+        $points = (int)$request->points ?? 50;
+
+        $user->points += $points;
 
         // если сохранение не успешно верни ошибку
         if (!$user->save())

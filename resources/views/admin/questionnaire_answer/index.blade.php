@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table  class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Анкета</th>
@@ -45,7 +45,7 @@
                                     </td>
                                     <td>
                                         @foreach($item->questionnaire->questions ?? [] as $index => $question)
-                                           - <span>{{ $question }}</span>: {!!  $item->answers[$index] ?  '<b>Да</b>' : '<b>Нет</b>' !!} <br>
+{{--                                           - <span>{{ $question }}</span>: {!!  $item->answers[$index] ?  '<b>Да</b>' : '<b>Нет</b>' !!} <br>--}}
                                         @endforeach
                                     </td>
                                     <td>

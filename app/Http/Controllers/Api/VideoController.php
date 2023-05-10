@@ -26,7 +26,7 @@ class VideoController extends Controller
 
         $videos = Video::where('language', $request->language ?? 'ru')->when($request->category, function ($q, $k){
             $q->where('category', $k);
-        })->paginate(10);
+        })->orderByDesc('id')->paginate(10);
 
         return response()->json(['data' => VideoResource::collection($videos),
             'page' => $videos->currentPage(),

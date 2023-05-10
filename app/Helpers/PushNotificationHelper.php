@@ -46,9 +46,10 @@ class PushNotificationHelper
 
             // отправка запроса и получение результата
             $response = $client->send($request,[
-                'body' => json_encode(['notification' => $data, 'to' => $i]),
+                'body' => json_encode(['notification' => $data, 'to' => $i, 'data' => $data['data']]),
                 'notification' => json_encode($data),
-                'connect_timeout' => 90
+                'connect_timeout' => 90,
+                'data' => json_encode($data['data']),
             ]);
 
             // получение ответа
@@ -68,7 +69,7 @@ class PushNotificationHelper
             $log->data = $data;
             $log->result = $result;
             $log->user = $user;
-            $log->from = Auth::user()->id;
+            $log->from = Auth::user()->id ?? null;
 
             $log->save();
 
@@ -331,7 +332,7 @@ class PushNotificationHelper
             'vibrate' => 1,
             'sound' => 1,
             'priority' => 10,
-            'data' => $child
+            'data' => ['child_id' => $child->id]
         ],$tokens_user, '');
 
     }

@@ -22,7 +22,7 @@ class QuestionnaireAnswerController extends Controller
         $namespace_edit = 'admin.questionnaire_answer.edit';
         $namespace_destroy = 'admin.questionnaire_answer.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,
@@ -138,7 +138,7 @@ class QuestionnaireAnswerController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Model $model
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy(Model $model, $id)
     {

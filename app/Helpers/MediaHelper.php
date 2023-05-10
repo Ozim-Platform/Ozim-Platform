@@ -59,12 +59,12 @@ class MediaHelper
         // получение пути
         $path = 'storage/' . $base_path . '/' . date('Y') . '/' . date('m') . '/' . date('d') . time();
 
-//        if ($crop === 'crop') {
+        if (in_array($file->getClientOriginalExtension(), Config::get('app.files_photos_extension'))){
             $img = Image::make($file->path());
             $img->resize(400, 400, function ($const) {
                 $const->aspectRatio();
             })->save();
-//        }
+        }
 
         // сохранения пути
         $file->move($path, $file_name);

@@ -19,4 +19,6 @@ Route::group(['prefix'  => 'subscription', 'middleware' => 'apiAuth',
 
     Route::post('/',['middleware' => 'apiAuth', 'uses' => 'UserSubscriptionController@subscription']);
 
+    Route::post('/store',['middleware' => 'apiAuth', 'uses' => 'UserSubscriptionController@store']);
+
 });

@@ -21,7 +21,7 @@ class CategoryController extends Controller
         $namespace_edit = 'admin.category.edit';
         $namespace_destroy = 'admin.category.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

@@ -35,6 +35,8 @@ class UserChildren extends Model
             if (!empty($ids))
                 $q->whereNotIn('id', $ids);
 
+            $q->where('age', $this->age);
+
         })->get();
     }
 

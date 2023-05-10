@@ -21,7 +21,7 @@ class ServiceProviderController extends Controller
         $namespace_edit = 'admin.service_provider.edit';
         $namespace_destroy = 'admin.service_provider.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

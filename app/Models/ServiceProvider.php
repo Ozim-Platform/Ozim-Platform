@@ -45,4 +45,26 @@ class ServiceProvider extends Model
         return Language::where('sys_name', $this->attributes['language'])->first();
     }
 
+    public static function rating($id = null)
+    {
+        if ($id != null)
+            $ratings = RecordRating::where([['record_id', $id], ['type', 'service_provider']])->pluck('rating');
+        else
+            $ratings = RecordRating::where([['record_id', $this->attributes['id']], ['type', 'service_provider']])->pluck('rating');
+
+        $value = 0;
+
+        foreach ($ratings as $rating) {
+            $value += $rating;
+        }
+
+        if (sizeof($ratings) == 0)
+            $size = 1;
+        else
+            $size = sizeof($ratings);
+
+        return $value/$size;
+
+    }
+
 }

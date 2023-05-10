@@ -52,7 +52,7 @@ class CheckChildrenAgeForQuestionnaire extends Command
             $questionnaire = Questionnaire::query()
                 ->whereNotIn('id', $q_answers)
                 ->where('age', $child->age)->count();
-            $this->info($questionnaire);
+//            $this->info($questionnaire);
             if ($questionnaire){
                 PushNotificationHelper::sendPushForChildParent($child->parent->id, $child);
                 $count++;

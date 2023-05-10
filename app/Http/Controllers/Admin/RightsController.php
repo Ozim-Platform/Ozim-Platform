@@ -19,7 +19,7 @@ class RightsController extends Controller
         $namespace_edit = 'admin.rights.edit';
         $namespace_destroy = 'admin.rights.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

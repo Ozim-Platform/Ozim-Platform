@@ -26,7 +26,7 @@ class FaqController extends Controller
         if ($validator->fails())
             return response()->json(['error' => $validator->errors()->first()])->setStatusCode(422);
 
-        $faqs = Faq::where('language', $request->language ?? 'ru')->paginate(10);
+        $faqs = Faq::where('language', $request->language ?? 'ru')->orderByDesc('id')->paginate(10);
 
         return response()->json(['data' => FAQResource::collection($faqs),
         'page' => $faqs->currentPage(),

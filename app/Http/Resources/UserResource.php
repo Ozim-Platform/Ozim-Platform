@@ -23,6 +23,7 @@ class UserResource extends JsonResource
             'language' => $this->language,
             'type' => $this->type,
             'points' => $this->points,
+            'subscription' => $this->subscription,
             'children' => UserChildrenResource::collection($this->children),
         ];
     }

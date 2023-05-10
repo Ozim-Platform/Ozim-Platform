@@ -18,5 +18,7 @@ Route::group(['prefix'  => 'children', 'middleware' => 'apiAuth',
     Route::get('/','UserChildrenController@index');
     // создание
     Route::post('/','UserChildrenController@store');
+    Route::post('/{child}','UserChildrenController@update');
+    Route::delete('/{child}','UserChildrenController@destroy');
 
 });

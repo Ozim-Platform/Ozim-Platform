@@ -20,7 +20,7 @@ class PartnerController extends Controller
         $namespace_edit = 'admin.partner.edit';
         $namespace_destroy = 'admin.partner.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

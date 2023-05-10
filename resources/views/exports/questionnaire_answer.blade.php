@@ -38,7 +38,7 @@ padding:20px;
                             border-radius:50%;
                             background: #fff;
                             position:absolute;
-                            margin-left: {{ $item['total']/60*100-4 }}%;
+                            margin-left: {{ $item['total']/60*80.7 }}%;
                             ">
                         &nbsp;
                     </span>

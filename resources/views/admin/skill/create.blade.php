@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', '- Навыки')
+@section('title', '- Видеоуроки')
 
 @section('content')
 
@@ -14,7 +14,7 @@
                             <nav>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route($namespace_store) }}"><i class="mdi mdi-home-outline"></i></a></li>
-                                    <li class="breadcrumb-item" aria-current="page">Навыки</li>
+                                    <li class="breadcrumb-item" aria-current="page">Видеоуроки</li>
                                     <li class="breadcrumb-item active" aria-current="page">Добавление</li>
                                 </ol>
                             </nav>

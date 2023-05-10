@@ -57,13 +57,13 @@ class ForumSubcategory extends Model
     public function getLastCommentAttribute($sys_name = null)
     {
         if ($sys_name == null)
-            $posts = Forum::where('subcategory', $this->sys_name)->orderBy('id', 'DESC')->get();
+            $posts = Forum::where('subcategory', $this->sys_name)->orderByDesc('id')->get();
 
         if ($sys_name != null)
-            $posts = Forum::where('subcategory', $sys_name)->orderBy('id', 'DESC')->get();
+            $posts = Forum::where('subcategory', $sys_name)->orderByDesc('id')->get();
 
         $comment = ForumComment::query()
-            ->whereIn('forum_id', $posts->pluck('id'))->orderBy('id', 'DESC')->first();
+            ->whereIn('forum_id', $posts->pluck('id'))->orderByDesc('id')->first();
 
         if (!$comment)
         {

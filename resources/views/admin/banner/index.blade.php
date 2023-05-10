@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', '- Баннер')
+@section('title', '- Реклама')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route($controller_name) }}"><i class="mdi mdi-home-outline"></i></a></li>
-                                <li class="breadcrumb-item" aria-current="page">Баннер</li>
+                                <li class="breadcrumb-item" aria-current="page">Реклама</li>
                                 <li class="breadcrumb-item active" aria-current="page">Просмотр</li>
                             </ol>
                         </nav>
@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table  class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Фото</th>
@@ -68,6 +68,7 @@
                         </tfoot>
                     </table>
                 </div>
+                @include('partials.pagination')
                 <div class="dt-buttons btn-group">
                     <a href="{{ route($namespace_create) }}" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0">
                         <span>Добавить баннер</span>

@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table nowrap table-bordered table-striped">
+                    <table  class="table nowrap table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Название</th>
@@ -53,6 +53,7 @@
                         </tfoot>
                     </table>
                 </div>
+                @include('partials.pagination')
                 <div class="dt-buttons btn-group">
                     <a href="{{ route($namespace_create) }}" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0">
                         <span>Добавить категорию</span>

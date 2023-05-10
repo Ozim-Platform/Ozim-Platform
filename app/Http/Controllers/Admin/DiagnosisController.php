@@ -21,7 +21,7 @@ class DiagnosisController extends Controller
         $namespace_edit = 'admin.diagnosis.edit';
         $namespace_destroy = 'admin.diagnosis.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate(5);
 
         return view($this->controllerName(),[
             'items' => $items,

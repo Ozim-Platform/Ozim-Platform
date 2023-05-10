@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Api\User;
 use App\Helpers\PushNotificationHelper;
 use App\Http\Controllers\Controller;
 use App\Models\TokenDevice;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,7 +75,7 @@ class TokenController   extends Controller
 
     }
 
-    public function test(){
+    public function test(Request $request){
 
         $user_message = [
             'body' => 'Тест пуша',
@@ -83,12 +84,15 @@ class TokenController   extends Controller
             'vibrate' => 1,
             'sound' => 1,
             'priority' => 10,
-            'data' => Auth::user()->getAuthIdentifier()
+            'data' => $request->data
         ];
 
-        $tokens = TokenDevice::getUserTokens(Auth::user()->getAuthIdentifier());
+        $tokens = TokenDevice::getUserTokens(Auth::user()->id);
 
-        PushNotificationHelper::sendPush($user_message, array_unique($tokens));
+        if (PushNotificationHelper::sendPush($user_message, array_unique($tokens)))
+            return response()->json($request->data);
+
+        return response()->json(['message' => 'Что-то пошло не так'], 401);
 
     }
 }

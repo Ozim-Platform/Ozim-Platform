@@ -2,12 +2,24 @@
 
 namespace App\Providers;
 
-use App\Models\{ArticleBookmarkFolder, ArticleComment, ForumComment, RecordBookmarkFolder, RecordComment};
+use App\Models\{ArticleBookmarkFolder,
+    ArticleComment,
+    Forum,
+    ForumComment,
+    QuestionnaireAnswer,
+    RecordBookmarkFolder,
+    RecordComment,
+    RecordLike,
+    RecordRating};
 use App\Observers\{ArticleBookmarkFolderObserver,
     ArticleCommentObserver,
     ForumCommentObserver,
+    ForumObserver,
+    QAObserver,
     RecordBookmarkFolderObserver,
-    RecordCommentObserver};
+    RecordCommentObserver,
+    RecordLikeObserver,
+    RecordRatingObserver};
 use Illuminate\Support\{ServiceProvider, Collection};
 
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +46,10 @@ class AppServiceProvider extends ServiceProvider
         RecordComment::observe(RecordCommentObserver::class);
         ArticleBookmarkFolder::observe(ArticleBookmarkFolderObserver::class);
         RecordBookmarkFolder::observe(RecordBookmarkFolderObserver::class);
+        RecordLike::observe(RecordLikeObserver::class);
+        QuestionnaireAnswer::observe(QAObserver::class);
+        RecordRating::observe(RecordRatingObserver::class);
+        Forum::observe(ForumObserver::class);
 
         Collection::macro('present', function ($class) {
             return $this->map(function ($model) use ($class) {

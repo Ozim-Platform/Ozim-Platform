@@ -21,7 +21,7 @@ class LinkController extends Controller
         $namespace_edit = 'admin.link.edit';
         $namespace_destroy = 'admin.link.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,
@@ -52,8 +52,10 @@ class LinkController extends Controller
                 'link' => ['required'],
                 'description' => ['required'],
                 'name' => ['required'],
+                'book' => ['required'],
             ],[
                 'link.required' => 'link | Обязателен для заполнения',
+                'book.required' => 'file | Обязателен для заполнения',
                 'name.required' => 'name | Обязателен для заполнения',
                 'description.required' => 'description | Обязателен для заполнения',
             ]);
@@ -76,6 +78,8 @@ class LinkController extends Controller
         $model->author_position = $request->author_position;
         $model->image = $request->has('image')
             ? MediaHelper::uploadFile($request->image, 'link') : $model->image;
+        $model->book = $request->has('book')
+            ? MediaHelper::uploadFile($request->book, 'books') : $model->book;
         $model->author_photo = $request->has('author_photo') && is_file($request->file('author_photo'))
             ? MediaHelper::uploadFile($request->file('author_photo'), 'author_photo') : null;
         $model->preview = $request->has('preview') && is_file($request->file('preview'))
@@ -136,6 +140,8 @@ class LinkController extends Controller
         $model->author_position = $request->author_position;
         $model->image = $request->has('image')
             ? MediaHelper::uploadFile($request->image, 'link') : $model->image;
+        $model->book = $request->has('book')
+            ? MediaHelper::uploadFile($request->book, 'books') : $model->book;
         $model->author_photo = $request->has('author_photo') && is_file($request->file('author_photo'))
             ? MediaHelper::uploadFile($request->author_photo, 'author_photo') : $model->author_photo;
         $model->preview = $request->has('preview') && is_file($request->file('preview'))
@@ -151,7 +157,7 @@ class LinkController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Model $model
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy(Model $model, $id)
     {

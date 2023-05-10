@@ -22,7 +22,7 @@ class VideoController extends Controller
         $namespace_edit = 'admin.video.edit';
         $namespace_destroy = 'admin.video.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

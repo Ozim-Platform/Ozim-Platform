@@ -14,6 +14,6 @@ Route::group(['prefix'  => 'token','middleware' => 'apiAuth', 'namespace' => 'Us
     Route::post('/{type}/{token}','TokenController@store');
 
     // тест
-    Route::get('/','TokenController@test');
+    Route::post('/test','TokenController@test');
 
 });

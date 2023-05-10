@@ -78,6 +78,13 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-form-label col-md-2">Баллы</label>
+                        <div class="col-md-10">
+                            <input class="form-control" value="{{ old('points' ?? $item->points ?? 0) }}" type="number" name="points" step="10">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label class="col-form-label col-md-2">Аватар (загрузите чтобы обновить/добавить)</label>
                         <div class="col-md-10">
                             <input  class="form-control" type="file" name="avatar">

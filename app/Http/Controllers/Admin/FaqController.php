@@ -20,7 +20,7 @@ class FaqController extends Controller
         $namespace_edit = 'admin.faq.edit';
         $namespace_destroy = 'admin.faq.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

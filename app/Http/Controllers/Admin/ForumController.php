@@ -24,7 +24,7 @@ class ForumController extends Controller
         $namespace_edit = 'admin.forum.edit';
         $namespace_destroy = 'admin.forum.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,

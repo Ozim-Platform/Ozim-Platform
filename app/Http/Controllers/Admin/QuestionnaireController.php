@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Questionnaire as Model;
 use App\Models\Language;
+use App\Models\QuestionnaireAnswer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +22,7 @@ class QuestionnaireController extends Controller
         $namespace_edit = 'admin.questionnaire.edit';
         $namespace_destroy = 'admin.questionnaire.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,
@@ -165,6 +166,9 @@ class QuestionnaireController extends Controller
             if ($index !== 5)
                 $questions[$theme]['ranges'] = $request->ranges[$index];
         }
+
+        if ($questions && $model->questions !== $questions)
+            QuestionnaireAnswer::query()->where('questionnaire_id', $id)->delete();
 
         $model->age = (int)$request->age;
         $model->questions = $questions;

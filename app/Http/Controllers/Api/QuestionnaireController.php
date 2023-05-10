@@ -45,7 +45,7 @@ class QuestionnaireController extends Controller
             if ($request->has('id'))
                 $query->where('id', (int)$request->id);
 
-        })->paginate(10);
+        })->orderByDesc('id')->paginate(10);
 
         return response()->json([
             'data' => QuestionnaireResource::collection($questions),
@@ -105,6 +105,12 @@ class QuestionnaireController extends Controller
 
     public function sendToEmailAnswer(Request $request)
     {
+
+        $request->replace([
+            'answer_id' => (int)$request->answer_id,
+            'email' => $request->email,
+        ]);
+
         $request->validate([
             'answer_id' => ['required', 'exists:questionnaire_answers,id'],
             'email' => [Rule::requiredIf(auth()->user()->email == null), 'email:rfc,dns'],
@@ -119,8 +125,8 @@ class QuestionnaireController extends Controller
 
         $child = $answer->child;
 
-        if (in_array($child->id, $child_ids))
-            return response()->json(['error' => 'У вас нет такого результата'])->setStatusCode(422);
+//        if (in_array($child->id, $child_ids))
+//            return response()->json(['error' => 'У вас нет такого результата'])->setStatusCode(422);
 
         $user = auth()->user();
         $email = $request->email ?? $user->email;

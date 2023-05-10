@@ -25,7 +25,7 @@ class UserController extends Controller
         $namespace_edit = 'admin.users.edit';
         $namespace_destroy = 'admin.users.destroy';
 
-        $items = Model::all();
+        $items = Model::paginate();
 
         return view($this->controllerName(),[
             'items' => $items,
@@ -59,6 +59,7 @@ class UserController extends Controller
                 'name' => ['required'],
                 'phone' => ['required'],
                 'email' => ['required'],
+                'points' => ['required', 'int'],
                 'type' => ['required', 'exists:users_types,sys_name'],
                 'role' => ['required', 'exists:users_roles,sys_name'],
                 'language' => ['required', 'exists:languages,sys_name'],
@@ -66,6 +67,8 @@ class UserController extends Controller
                 'name.required' => 'name | Обязателен для заполнения',
                 'phone.required' => 'phone | Обязателен для заполнения',
                 'email.required' => 'email | Обязателен для заполнения',
+                'points.required' => 'points | Обязателен для заполнения',
+                'points.int' => 'points | Должен быть численной',
                 'type.required' => 'type | Обязателен для заполнения',
                 'type.exists' => 'type |Такой записи нет',
                 'role.required' => 'role | Обязателен для заполнения',
@@ -87,6 +90,7 @@ class UserController extends Controller
         $model->email = $request->email;
         $model->role = $request->role;
         $model->type = $request->type;
+        $model->points = (int)$request->points;
         $model->avatar = is_file($request->avatar)
             ? MediaHelper::uploadFile($request->avatar, 'avatar')['path'] : null;
         $model->language = $request->language;
@@ -127,6 +131,7 @@ class UserController extends Controller
                 'name' => ['required'],
                 'phone' => ['required'],
                 'email' => ['required'],
+                'points' => ['required', 'int'],
                 'type' => ['required', 'exists:users_types,sys_name'],
                 'role' => ['required', 'exists:users_roles,sys_name'],
                 'language' => ['required', 'exists:languages,sys_name'],
@@ -136,6 +141,8 @@ class UserController extends Controller
                 'email.required' => 'email | Обязателен для заполнения',
                 'type.required' => 'type | Обязателен для заполнения',
                 'type.exists' => 'type |Такой записи нет',
+                'points.required' => 'points | Обязателен для заполнения',
+                'points.int' => 'points | Должен быть численной',
                 'role.required' => 'role | Обязателен для заполнения',
                 'role.exists' => 'role |Такой записи нет',
                 'language.required' => 'language | Обязателен для заполнения',
@@ -156,6 +163,7 @@ class UserController extends Controller
         $model->phone = $request->phone;
         $model->email = $request->email;
         $model->role = $request->role;
+        $model->points = (int)$request->points;
         $model->type = $request->type;
         $model->avatar = is_file($request->avatar)
             ? MediaHelper::uploadFile($request->avatar, 'avatar')['path']

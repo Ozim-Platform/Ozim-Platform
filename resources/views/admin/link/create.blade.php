@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', '- Ресурсы')
+@section('title', '- Библиотека')
 
 @section('content')
 
@@ -16,7 +16,7 @@
                             <nav>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route($controller_name) }}"><i class="mdi mdi-home-outline"></i></a></li>
-                                    <li class="breadcrumb-item" aria-current="page">Ресурсы</li>
+                                    <li class="breadcrumb-item" aria-current="page">Библиотека</li>
                                     <li class="breadcrumb-item active" aria-current="page">Добавление</li>
                                 </ol>
                             </nav>
@@ -77,13 +77,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <h5 class="col-form-label col-md-2">Фото <span class="text-danger">*</span></h5>
+                        <h5 class="col-form-label col-md-2">Фото </h5>
                         <div class="controls col-form-label col-md-10">
                             <input type="file" name="image" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <h5 class="col-form-label col-md-2">Обложка <span class="text-danger">*</span></h5>
+                        <h5 class="col-form-label col-md-2">Обложка </h5>
                         <div class="controls col-form-label col-md-10">
                             <input type="file" name="preview" class="form-control">
                         </div>
@@ -101,9 +101,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <h5 class="col-form-label col-md-2">Фото автора <span class="text-danger">*</span></h5>
+                        <h5 class="col-form-label col-md-2">Фото автора </h5>
                         <div class="controls col-form-label col-md-10">
                             <input type="file" name="author_photo" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <h5 class="col-form-label col-md-2">Файл <span class="text-danger">*</span></h5>
+                        <div class="controls col-form-label col-md-10">
+                            <input type="file" name="book" class="form-control" required>
                         </div>
                     </div>
 

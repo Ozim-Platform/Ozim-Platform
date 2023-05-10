@@ -33,7 +33,7 @@ class CategoryController extends Controller
             if ($request->has('type'))
                 $query->where('type', $request->type);
 
-        })->get())->setStatusCode(200);
+        })->orderByDesc('id')->get())->setStatusCode(200);
     }
 
 }
