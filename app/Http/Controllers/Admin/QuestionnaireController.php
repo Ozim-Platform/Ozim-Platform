@@ -69,12 +69,12 @@ class QuestionnaireController extends Controller
                 'language' => ['nullable', 'exists:languages,sys_name'],
             ]);
 
-        foreach ($request->ranges as $range){
-            if (array_sum($range) >= 61)
-                return Redirect::back()->with('error', 'Общая сумма диаграмм не должно превышать 60 : ' . implode(' ', $range));
-            else if (array_sum($range) < 60)
-                return Redirect::back()->with('error', 'Общая сумма диаграмм не должно быть меньше 60 : ' . implode('-', $range));
-        }
+//        foreach ($request->ranges as $range){
+//            if (array_sum($range) >= 61)
+//                return Redirect::back()->with('error', 'Общая сумма диаграмм не должно превышать 60 : ' . implode(' ', $range));
+//            else if (array_sum($range) < 60)
+//                return Redirect::back()->with('error', 'Общая сумма диаграмм не должно быть меньше 60 : ' . implode('-', $range));
+//        }
 
         if ($validator->fails())
         {

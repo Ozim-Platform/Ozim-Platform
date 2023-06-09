@@ -6,20 +6,24 @@ use App\Models\{ArticleBookmarkFolder,
     ArticleComment,
     Forum,
     ForumComment,
+    Questionnaire,
     QuestionnaireAnswer,
     RecordBookmarkFolder,
     RecordComment,
     RecordLike,
-    RecordRating};
+    RecordRating,
+    User};
 use App\Observers\{ArticleBookmarkFolderObserver,
     ArticleCommentObserver,
     ForumCommentObserver,
     ForumObserver,
     QAObserver,
+    QuestionnaireObserver,
     RecordBookmarkFolderObserver,
     RecordCommentObserver,
     RecordLikeObserver,
-    RecordRatingObserver};
+    RecordRatingObserver,
+    UserObserver};
 use Illuminate\Support\{ServiceProvider, Collection};
 
 class AppServiceProvider extends ServiceProvider
@@ -50,6 +54,8 @@ class AppServiceProvider extends ServiceProvider
         QuestionnaireAnswer::observe(QAObserver::class);
         RecordRating::observe(RecordRatingObserver::class);
         Forum::observe(ForumObserver::class);
+        Questionnaire::observe(QuestionnaireObserver::class);
+        User::observe(UserObserver::class);
 
         Collection::macro('present', function ($class) {
             return $this->map(function ($model) use ($class) {

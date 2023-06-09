@@ -13,7 +13,7 @@ use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
 
-    use Authenticatable, Authorizable, SoftDeletes, UseAutoIncrementID;
+    use Authenticatable, Authorizable, UseAutoIncrementID;
 
     protected $primaryKey = '_id';
 

@@ -272,5 +272,14 @@ class UserController extends Controller
     }
 
 
+    public function destroyAccount() : JsonResponse
+    {
+        // получение текущего авторизированного пользователя
+        $user = $this->userRepository->getAuthUser();
+
+        $user->delete();
+
+        return response()->json(['success' => 'Успешно удалились'])->setStatusCode(200);
+    }
 
 }

@@ -2,7 +2,7 @@
 
 <p align="center"><a href="http://ozimplatform.com" target="_blank"><img src="https://static.tildacdn.com/tild6430-6563-4830-b538-363264643761/logo.svg" width="400"></a></p>
 
-## Getting Started
+## Getting Started 
 You are welcome to use the app as is, or you can build it from source.The app is built using Android Studio and the latest version of the Android SDK.
 * [PHP 7.3 or newer](https://www.php.net/)
 * [Composer 2](https://getcomposer.org/)

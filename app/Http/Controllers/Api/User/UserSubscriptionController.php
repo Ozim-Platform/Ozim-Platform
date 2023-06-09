@@ -68,10 +68,7 @@ class UserSubscriptionController extends Controller
             ->delete();
 
         $model = auth()->user()->subscription()
-            ->create([
-                'subscription' => $request->subscription,
-                'expires' => $request->expires,
-            ]);
+            ->create($request->all());
 
         // верни
         return response()->json($model);

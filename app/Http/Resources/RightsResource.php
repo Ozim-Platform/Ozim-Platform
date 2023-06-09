@@ -45,33 +45,33 @@ class RightsResource extends JsonResource
     public function likes($id = null)
     {
         if ($id != null)
-            return RecordLike::where([['record_id', $id], ['type', 'rights']])->count();
+            return RecordLike::where([['record_id', $id], ['type', 'right']])->count();
 
-        return RecordLike::where([['record_id', $this->id], ['type', 'rights']])->count();
+        return RecordLike::where([['record_id', $this->id], ['type', 'right']])->count();
     }
 
     public function views($id = null)
     {
         if ($id != null)
-            return RecordView::where([['record_id', $id], ['type', 'rights']])->count();
+            return RecordView::where([['record_id', $id], ['type', 'right']])->count();
 
-        return RecordView::where([['record_id', $this->id], ['type', 'rights']])->count();
+        return RecordView::where([['record_id', $this->id], ['type', 'right']])->count();
     }
 
     public function is_liked($id = null)
     {
         if ($id != null)
-            return RecordLike::where([['record_id', $id], ['user_id', Auth::user()->id], ['type', 'rights']])->exists();
+            return RecordLike::where([['record_id', $id], ['user_id', Auth::user()->id], ['type', 'right']])->exists();
 
-        return RecordLike::where([['record_id', $this->id], ['user_id', Auth::user()->id], ['type', 'rights']])->exists();
+        return RecordLike::where([['record_id', $this->id], ['user_id', Auth::user()->id], ['type', 'right']])->exists();
     }
 
     public function in_bookmarks($id = null)
     {
         if ($id != null)
-            return RecordBookmarks::where([['record_id', $id], ['user_id', Auth::user()->id], ['type', 'rights']])->exists();
+            return RecordBookmarks::where([['record_id', $id], ['user_id', Auth::user()->id], ['type', 'right']])->exists();
 
-        return RecordBookmarks::where([['record_id', $this->id], ['user_id', Auth::user()->id], ['type', 'rights']])->exists();
+        return RecordBookmarks::where([['record_id', $this->id], ['user_id', Auth::user()->id], ['type', 'right']])->exists();
     }
 
     public function bookmark_folder($id = null)
@@ -85,10 +85,10 @@ class RightsResource extends JsonResource
     public function comments($id = null)
     {
         if ($id == null)
-            $comments = RecordComment::where([['record_id', $this->id],['comment_id', 'exists', false], ['type', 'rights']])->get();
+            $comments = RecordComment::where([['record_id', $this->id],['comment_id', 'exists', false], ['type', 'right']])->get();
 
         if ($id != null)
-            $comments = RecordComment::where([['record_id', $id], ['comment_id', 'exists', false], ['type', 'rights']])->get();
+            $comments = RecordComment::where([['record_id', $id], ['comment_id', 'exists', false], ['type', 'right']])->get();
 
         return RecordCommentResource::collection($comments);
     }
