@@ -7,6 +7,8 @@ You are welcome to use the app as is, or you can build it from source.The app is
 * [PHP 7.3 or newer](https://www.php.net/)
 * [Composer 2](https://getcomposer.org/)
 * [MongoDB](https://www.mongodb.com/)
+* [MySQL](https://www.mysql.com/)
+* [PostgreSQL](https://www.postgresql.org)
 
 ### Installing and Setting
 
@@ -29,6 +31,11 @@ DB_PORT=27017
 DB_DATABASE="ozim"
 DB_USERNAME="Your user"
 DB_PASSWORD="password"
+
+The Ozim Platform mobile application is developed using the PHP scripting language. For connecting to MySQL or PostgreSQL databases using PHP, there are specific instructions available. The PHP documentation provides guidance on how to work with these databases
+MySQL: Users can find instructions on connecting to a MySQL database and performing various operations using the MySQL extension in PHP at the following link: [https://www.php.net/manual/en/function.mysql-connect.php]
+PostgreSQL: If users are working with a PostgreSQL database, the PHP documentation offers instructions for connecting to PostgreSQL and working with it using the PostgreSQL extension. Users can find the relevant information here: [https://www.php.net/manual/en/refs.database.vendors.php]
+Here is sample instruction how to migrate from MongoDB to SQL [https://medium.com/swlh/migrating-from-mongodb-to-sql-b2d91d13c30d]
 ```
 
 ## Install dependencies
